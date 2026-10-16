@@ -1,1 +1,62 @@
+class Employee {
+    String name;
+    double salary;
+    
+    // Static field to count the number of employees created[span_0](start_span)[span_0](end_span)
+    static int employeeCount = 0;
+
+    // No-argument constructor calling the parameterized constructor using this()[span_1](start_span)[span_1](end_span)
+    Employee() {
+        this("Default Employee", 0.0);
+    }
+
+    // Parameterized constructor using this.field to distinguish instance fields from parameters[span_2](start_span)[span_2](end_span)
+    Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+        
+        // Increment the static count whenever an object is constructed[span_3](start_span)[span_3](end_span)
+        employeeCount++;
+    }
+
+    // Method to display employee details
+    void displayDetails() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Salary: ₹" + salary);
+        System.out.println("-----------------------------------");
+    }
+
+    // Static method to display the employee count[span_4](start_span)[span_4](end_span)
+    static void displayEmployeeCount() {
+        System.out.println("Total Employees Created: " + employeeCount);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Demonstrating static count before creating objects[span_5](start_span)[span_5](end_span)
+        System.out.println("--- Initial State ---");
+        Employee.displayEmployeeCount();
+        System.out.println();
+
+        // Creating multiple objects to demonstrate constructor chaining and static fields[span_6](start_span)[span_6](end_span)
+        System.out.println("--- Creating Objects ---");
+        Employee emp1 = new Employee();                             // Uses no-arg constructor (constructor chaining)
+        emp1.displayDetails();
+        Employee.displayEmployeeCount();
+        System.out.println();
+
+        Employee emp2 = new Employee("Aarav Sharma", 50000.0);      // Uses parameterized constructor
+        emp2.displayDetails();
+        Employee.displayEmployeeCount();
+        System.out.println();
+
+        Employee emp3 = new Employee("Priya Verma", 75000.0);       // Uses parameterized constructor
+        emp3.displayDetails();
+        
+        // Final total count demonstration[span_7](start_span)[span_7](end_span)
+        System.out.println("--- Final Summary ---");
+        Employee.displayEmployeeCount();
+    }
+}
 
