@@ -1,1 +1,51 @@
 
+
+class ComplexNumber {
+
+    double real;
+    double imaginary;
+
+
+    ComplexNumber(double real, double imaginary) {
+        this.real = real;
+        this.imaginary = imaginary;
+    }
+
+
+    ComplexNumber add(ComplexNumber other) {
+        double realPart = this.real + other.real;
+        double imaginaryPart = this.imaginary + other.imaginary;
+
+        return new ComplexNumber(realPart, imaginaryPart);
+    }
+
+
+    void display() {
+        if (imaginary >= 0) {
+            System.out.println(real + " + " + imaginary + "i");
+        } else {
+            System.out.println(real + " - " + (-imaginary) + "i");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        ComplexNumber c1 = new ComplexNumber(5, 3);
+        ComplexNumber c2 = new ComplexNumber(2, 4);
+
+        System.out.println("First Complex Number:");
+        c1.display();
+
+        System.out.println("Second Complex Number:");
+        c2.display();
+
+        
+        ComplexNumber result = c1.add(c2);
+
+        
+        System.out.println("Sum of Complex Numbers:");
+        result.display();
+    }
+}
