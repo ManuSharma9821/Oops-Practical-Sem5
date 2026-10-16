@@ -1,1 +1,33 @@
 
+class Demo {
+    // Constructor
+    Demo() {
+        System.out.println("Object is constructed.");
+    }
+
+    void display() {
+        System.out.println("Object is being used.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Create an object
+        Demo obj = new Demo();
+
+        // Use the object
+        obj.display();
+
+        // Remove the reachable reference
+        obj = null;
+
+        System.out.println("Reference removed. Object is now eligible for garbage collection.");
+
+        // Request garbage collection
+        System.gc();
+
+        System.out.println("Garbage collection requested.");
+        System.out.println("GC may or may not occur immediately.");
+    }
+}
